@@ -1,0 +1,19 @@
+## Configuração do Ambiente
+# Faça o Build do Projeto 
+- docker compose build 
+
+# Suba os containers 
+- docker compose up 
+
+# Acesse ao endereço 
+- http://0.0.0.0:5000/
+
+# Entre com as credenciais
+- login = admin / senha = password123
+
+# Rodando os testes 
+- Instale as dependencias para rodar localmente 
+- rode o comando pytest tests/tests.py -v para rodar os testes
+
+![alt text](image.png)
+

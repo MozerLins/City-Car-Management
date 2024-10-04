@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword  
+      MYSQL_DATABASE: car_management       
+      MYSQL_USER: user                     
+      MYSQL_PASSWORD: userpassword         
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .                                                   
+    ports:
+      - "5000:5000"                        
+    environment:
+      - FLASK_ENV=development              
+      - FLASK_APP=app                      
+      - DATABASE_URL=mysql+pymysql://user:userpassword@db/car_management  
+    depends_on:
+      db:
+        condition: service_healthy
+    command: >
+      /bin/sh -c "sleep 10 && flask run --host=0.0.0.0 --port=5000"
+
+volumes:
+  db_data:

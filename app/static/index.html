@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Car Management</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>City Car Management</h1>
+        
+        <div id="login">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p id="login-message"></p>
+        </div>
+
+        <div id="add-owner" style="display:none;">
+            <h2>Add Owner</h2>
+            <input type="text" id="owner-name" placeholder="Owner Name">
+            <button onclick="addOwner()">Add Owner</button>
+            <p id="owner-message"></p>
+        </div>
+        <div id="add-car" style="display:none;">
+            <h2>Add Car</h2>
+            <label for="owner-select">Select Owner:</label>
+            <select id="owner-select">
+                <option value="" disabled selected>Select Owner</option>
+            </select>
+        
+            <label for="car-color">Car Color:</label>
+            <select id="car-color">
+                <option value="" disabled selected>Select Color</option>
+            </select>
+
+            <label for="car-model">Car Model:</label>
+            <select id="car-model">
+                <option value="" disabled selected>Select Model</option>
+            </select>
+            
+            <button onclick="addCar()">Add Car</button>
+            <p id="car-message"></p>
+        </div>
+        <div id="owners-list" style="display:none;">
+            <h2>Owners and Cars</h2>
+            <button onclick="getOwners()">Load Owners and Cars</button>
+            <ul id="owners"></ul>
+        </div>
+    </div>
+
+    <script src="static/js/app.js"></script>
+</body>
+</html>
