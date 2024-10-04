@@ -15,5 +15,3 @@
 - Instale as dependencias para rodar localmente 
 - rode o comando pytest tests/tests.py -v para rodar os testes
 
-![alt text](image.png)
-
